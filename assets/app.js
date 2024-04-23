@@ -11,7 +11,7 @@ import 'line-awesome/dist/line-awesome/css/line-awesome.min.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './theme/css/magnific-popup.css';
 import './theme/css/main.css';
-
+import './css/style.css';
 // JS
 import './theme/js/jquery.magnific-popup';
 import './theme/js/main';

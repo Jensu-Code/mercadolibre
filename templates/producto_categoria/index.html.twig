@@ -19,8 +19,8 @@
                 {# <td>{{ producto_categorium.id }}</td> #}
                 <td>{{ producto_categorium.nombre }}</td>
                 <td>
-                    <a href="{{ path('app_producto_categoria_show', {'id': producto_categorium.id}) }}">show</a>
-                    <a href="{{ path('app_producto_categoria_edit', {'id': producto_categorium.id}) }}">edit</a>
+                    <a class="btn btn-info btn-sm" href="{{ path('app_producto_categoria_show', {'id': producto_categorium.id}) }}">show</a>
+                    <a class="btn btn-primary btn-sm" href="{{ path('app_producto_categoria_edit', {'id': producto_categorium.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
