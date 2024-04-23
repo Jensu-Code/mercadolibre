@@ -1,0 +1,37 @@
+<div class="mobile-menu d-lg-none d-block">
+    <button type="button" class="close-button"> <i class="las la-times"></i> </button>
+    <div class="mobile-menu__inner">
+        <a href="#" class="mobile-menu__logo">
+            <img src="{{ asset('build/images/logo/logo.png') }}" alt="Logo" class="white-version">
+            <img src="{{ asset('build/images/logo/white-logo-two.png') }}" alt="Logo" class="dark-version">
+        </a>
+        <div class="mobile-menu__menu">
+            <ul class="nav-menu flx-align nav-menu--mobile">
+                <li class="nav-menu__item">
+                    <a href="#" class="nav-menu__link">Home</a>
+                </li>
+                <li class="nav-menu__item has-submenu">
+                    <a href="javascript:void(0)" class="nav-menu__link">Products</a>
+                    <ul class="nav-submenu">
+                        <li class="nav-submenu__item">
+                            <a href="#" class="nav-submenu__link"> All Products</a>
+                        </li>
+                        <li class="nav-submenu__item">
+                            <a href="#" class="nav-submenu__link"> Product Details</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-menu__item">
+                    <a href="#" class="nav-menu__link">Contact</a>
+                </li>
+            </ul>
+            <div class="header-right__inner d-lg-none my-3 gap-1 d-flex flx-align">
+                <a href="{{ path('app_admin') }}" class="btn btn-main pill">
+                    <span class="icon-left icon">
+                        <img src="{{ asset('build/images/icons/user.svg') }}" alt="">
+                    </span>Login
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

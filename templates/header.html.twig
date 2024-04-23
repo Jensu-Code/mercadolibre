@@ -1,0 +1,72 @@
+<!-- ==================== Header Start Here ==================== -->
+<header class="header">
+    <div class="container container-full">
+        <nav class="header-inner flx-between">
+            <!-- Logo Start -->
+            <div class="logo">
+                <a href="#" class="link white-version">
+                    <img src="{{ asset('build/images/logo/logo-two.png') }}" alt="Logo">
+                </a>
+                <a href="#" class="link dark-version">
+                    <img src="{{ asset('build/images/logo/white-logo.png') }}" alt="Logo">
+                </a>
+            </div>
+            <!-- Logo End  -->
+
+            <!-- Menu Start  -->
+            <div class="header-menu d-lg-block d-none">
+
+                <ul class="nav-menu flx-align ">
+                    <li class="nav-menu__item">
+                        <a href="#" class="nav-menu__link">Home</a>
+                    </li>
+                    <li class="nav-menu__item has-submenu">
+                        <a href="javascript:void(0)" class="nav-menu__link">Products</a>
+                        <ul class="nav-submenu">
+                            <li class="nav-submenu__item">
+                                <a href="#" class="nav-submenu__link"> All Products</a>
+                            </li>
+                            <li class="nav-submenu__item">
+                                <a href="#" class="nav-submenu__link"> Product Details</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-menu__item">
+                        <a href="#" class="nav-menu__link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Menu End  -->
+
+            <!-- Header Right start -->
+            <div class="header-right flx-align">
+                <a href="#" class="header-right__button cart-btn position-relative">
+                    <img src="{{ asset('build/images/icons/cart.svg') }}" alt="" class="white-version">
+                    <img src="{{ asset('build/images/icons/cart-white.svg') }}" alt="" class="dark-version">
+                    <span class="qty-badge font-12">1</span>
+                </a>
+                <div class="theme-switch-wrapper position-relative">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" class="d-none" id="checkbox">
+                        <span class="slider text-black header-right__button white-version">
+                            <img src="{{ asset('build/images/icons/sun.svg') }}" alt="">
+                        </span>
+                        <span class="slider text-black header-right__button dark-version">
+                            <img src="{{ asset('build/images/icons/moon.svg') }}" alt="">
+                        </span>
+                    </label>
+                </div>
+                <div class="header-right__inner gap-3 flx-align d-lg-flex d-none">
+                    <a href="{{ path('app_admin') }}" class="btn btn-main pill">
+                    <span class="icon-left icon">
+                        <img src="{{ asset('build/images/icons/user.svg') }}" alt="">
+                    </span>Login
+                    </a>
+                </div>
+                <button type="button" class="toggle-mobileMenu d-lg-none"> <i class="las la-bars"></i> </button>
+            </div>
+            <!-- Header Right End  -->
+        </nav>
+    </div>
+</header>
+<!-- ==================== Header End Here ==================== -->

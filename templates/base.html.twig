@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ asset('build/images/logo/favicon.png') }}">
+
+    {{ encore_entry_link_tags('app') }}
+    {% block stylesheets %}
+    {% endblock %}
+
+    {{ encore_entry_script_tags('app') }}
+    {% block javascripts %}
+    {% endblock %}
+</head>
+<body>
+
+<!--==================== Preloader Start ====================-->
+<div class="loader-mask">
+    <div class="loader">
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<!--==================== Preloader End ====================-->
+
+<!--==================== Overlay Start ====================-->
+<div class="overlay"></div>
+<!--==================== Overlay End ====================-->
+
+<!--==================== Sidebar Overlay End ====================-->
+<div class="side-overlay"></div>
+<!--==================== Sidebar Overlay End ====================-->
+
+<!-- ==================== Scroll to Top End Here ==================== -->
+<div class="progress-wrap">
+    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+    </svg>
+</div>
+<!-- ==================== Scroll to Top End Here ==================== -->
+
+<!-- ================================== Dashboard Start =========================== -->
+<section class="dashboard">
+    <div class="dashboard__inner d-flex">
+        <!-- ===================== Dashboard Sidebar Start ======================= -->
+        <div class="dashboard-sidebar">
+            <button type="button" class="dashboard-sidebar__close d-lg-none d-flex"><i class="las la-times"></i></button>
+            <div class="dashboard-sidebar__inner">
+                <a href="{{ path('app_home') }}" class="logo mb-48">
+                    <img src="{{ asset('build/images/logo/logo.png') }}" alt="" class="white-version">
+                    <img src="{{ asset('build/images/logo/white-logo-two.png') }}" alt="" class="dark-version">
+                </a>
+                <a href="{{ path('app_home') }}" class="logo favicon mb-48">
+                    <img src="{{ asset('build/images/logo/favicon.png') }}" alt="">
+                </a>
+
+                <!-- Sidebar List Start -->
+                <ul class="sidebar-list">
+                    <li class="sidebar-list__item">
+                        <a href="{{ path('app_admin') }}" class="sidebar-list__link">
+                            <span class="sidebar-list__icon">
+                                <img src="{{ asset('build/images/icons/sidebar-icon1.svg') }}" alt="" class="icon">
+                                <img src="{{ asset('build/images/icons/sidebar-icon-active1.svg') }}" alt="" class="icon icon-active">
+                            </span>
+                            <span class="text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-list__item">
+                        <a href="#" class="sidebar-list__link">
+                            <span class="sidebar-list__icon">
+                                <img src="{{ asset('build/images/icons/sidebar-icon2.svg') }}" alt="" class="icon">
+                                <img src="{{ asset('build/images/icons/sidebar-icon-active2.svg') }}" alt="" class="icon icon-active">
+                            </span>
+                            <span class="text">Profile</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-list__item">
+                        <a href="{{ path('app_home') }}" class="sidebar-list__link">
+                            <span class="sidebar-list__icon">
+                                <img src="{{ asset('build/images/icons/sidebar-icon13.svg') }}" alt="" class="icon">
+                                <img src="{{ asset('build/images/icons/sidebar-icon-active13.svg') }}" alt="" class="icon icon-active">
+                            </span>
+                            <span class="text">Logout</span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- Sidebar List End -->
+
+            </div>
+        </div>
+        <!-- ===================== Dashboard Sidebar End ======================= -->
+
+        <div class="dashboard-body">
+            <!-- Dashboard Nav Start -->
+            <div class="dashboard-nav bg-white flx-between gap-md-3 gap-2">
+                <div class="dashboard-nav__left flx-align gap-md-3 gap-2">
+                    <button type="button" class="icon-btn bar-icon text-heading bg-gray-seven flx-center">
+                        <i class="las la-bars"></i>
+                    </button>
+                    <button type="button" class="icon-btn arrow-icon text-heading bg-gray-seven flx-center">
+                        <img src="{{ asset('build/images/icons/angle-right.svg') }}" alt="">
+                    </button>
+                    <form action="#" class="search-input d-sm-block d-none">
+                        <span class="icon">
+                            <img src="{{ asset('build/images/icons/search-dark.svg') }}" alt="" class="white-version">
+                            <img src="{{ asset('build/images/icons/search-dark-white.svg') }}" alt="" class="dark-version">
+                        </span>
+                        <input type="text" class="common-input common-input--md common-input--bg pill w-100" placeholder="Search here..." aria-label="search">
+                    </form>
+                </div>
+                <div class="dashboard-nav__right">
+                    <div class="header-right flx-align">
+                        <div class="header-right__inner gap-sm-3 gap-2 flx-align d-flex">
+                            <div class="theme-switch-wrapper position-relative">
+                                <label class="theme-switch" for="checkbox">
+                                    <input type="checkbox" class="d-none" id="checkbox">
+                                    <span class="slider text-black header-right__button white-version">
+                                        <img src="{{ asset('build/images/icons/sun.svg') }}" alt="">
+                                    </span>
+                                    <span class="slider text-black header-right__button dark-version">
+                                        <img src="{{ asset('build/images/icons/moon.svg') }}" alt="">
+                                    </span>
+                                </label>
+                            </div>
+
+                            <div class="user-profile">
+                                <button class="user-profile__button flex-align">
+                                    <span class="user-profile__thumb">
+                                        <img src="{{ asset('build/images/thumbs/user-profile.png') }}" class="cover-img" alt="">
+                                    </span>
+                                </button>
+                                <ul class="user-profile-dropdown">
+                                    <li class="sidebar-list__item">
+                                        <a href="#" class="sidebar-list__link">
+                                            <span class="sidebar-list__icon">
+                                                <img src="{{ asset('build/images/icons/sidebar-icon2.svg') }}" alt="" class="icon">
+                                                <img src="{{ asset('build/images/icons/sidebar-icon-active2.svg') }}" alt="" class="icon icon-active">
+                                            </span>
+                                            <span class="text">Profile</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-list__item">
+                                        <a href="#" class="sidebar-list__link">
+                                            <span class="sidebar-list__icon">
+                                                <img src="{{ asset('build/images/icons/sidebar-icon13.svg') }}" alt="" class="icon">
+                                                <img src="{{ asset('build/images/icons/sidebar-icon-active13.svg') }}" alt="" class="icon icon-active">
+                                            </span>
+                                            <span class="text">Logout</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Dashboard Nav End -->
+
+            <div class="dashboard-body__content">
+                {% block body %}{% endblock %}
+            </div>
+
+            <!-- ====================== Dashboard Footer Start ======================== -->
+            <div class="dashboard-footer bottom-footer-two mt-32 border-0 bg-white">
+                <div class="bottom-footer__inner flx-between gap-3">
+                    <p class="bottom-footer__text font-14"> Copyright © 2024, All rights reserved.</p>
+                    <div class="footer-links gap-4">
+                        <a href="#" class="footer-link hover-text-heading font-14">Terms of service</a>
+                        <a href="#" class="footer-link hover-text-heading font-14">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+            <!-- ====================== Dashboard Footer End ======================== -->
+        </div>
+    </div>
+</section>
+<!-- ================================== Dashboard End =========================== -->
+
+</body>
+</html>
