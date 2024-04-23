@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ProductoCategoria{% endblock %}
+
+{% block body %}
+    <h4>Edit ProductoCategoria</h4>
+
+    {{ include('producto_categoria/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a class="btn btn-secondary mt-4" href="{{ path('app_producto_categoria_index') }}">back to list</a>
+
+    {{ include('producto_categoria/_delete_form.html.twig') }}
+{% endblock %}

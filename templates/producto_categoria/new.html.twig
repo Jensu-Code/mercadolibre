@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Producto Categoria{% endblock %}
+
+{% block body %}
+    <h4>Create new Producto Categoria</h4>
+
+    {{ include('producto_categoria/_form.html.twig') }}
+
+    <a class="btn btn-secondary mt-4" href="{{ path('app_producto_categoria_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Producto Categoria index{% endblock %}
+
+{% block body %}
+    <h4>Producto Categoria index</h4>
+
+    <table class="table style-two">
+        <thead>
+            <tr>
+                {# <th>Id</th> #}
+                <th>Nombre</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for producto_categorium in producto_categorias %}
+            <tr>
+                {# <td>{{ producto_categorium.id }}</td> #}
+                <td>{{ producto_categorium.nombre }}</td>
+                <td>
+                    <a href="{{ path('app_producto_categoria_show', {'id': producto_categorium.id}) }}">show</a>
+                    <a href="{{ path('app_producto_categoria_edit', {'id': producto_categorium.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-success mt-4" href="{{ path('app_producto_categoria_new') }}">Create new</a>
+{% endblock %}
