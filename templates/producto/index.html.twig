@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 {# <th>Id</th> #}
+                <th>Foto</th>
                 <th>Nombre</th>
                 <th>Precio</th>
                 <th>Descuento</th>
@@ -20,6 +21,11 @@
         {% for producto in productos %}
             <tr>
                 {# <td>{{ producto.id }}</td> #}
+                <td>
+                    {% if producto.foto %}
+                        <img src="{{asset(producto.foto.filePath) | imagine_filter('mini')  }}" alt="Foto"/>
+                    {% endif %}
+                </td>
                 <td>{{ producto.nombre }}</td>
                 <td>{{ producto.precio }}</td>
                 <td>{{ producto.descuento }}</td>

@@ -1,4 +1,25 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
+    {{ form_row(form.nombre) }}
+    {{ form_row(form.precio) }}
+    {{ form_row(form.descuento) }}
+    {{ form_row(form.categoria) }}
+    <div class="row">
+        {{ form_label(form.foto) }}
+        <div class="col-sm-10">
+            <div class="row">
+                {% if producto.foto %}
+                    <div class="col-lg-1">
+                        <a href="{{ asset(producto.foto.filePath) }}" target="_blank">
+                            <img src="{{ asset(producto.foto.filePath) | imagine_filter('mini') }}" alt="Foto"/>
+                        </a>
+                    </div>
+                {% endif %}
+                <div class="col-lg-11">
+                    {{ form_widget(form.foto.file) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ form_row(form.activo) }}
     <button class="btn btn-warning mt-2">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}

@@ -5,30 +5,44 @@
 {% block body %}
     <h1>Producto</h1>
 
-    <table class="table style-two">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ producto.id }}</td>
-            </tr>
-            <tr>
-                <th>Nombre</th>
-                <td>{{ producto.nombre }}</td>
-            </tr>
-            <tr>
-                <th>Precio</th>
-                <td>{{ producto.precio }}</td>
-            </tr>
-            <tr>
-                <th>Descuento</th>
-                <td>{{ producto.descuento }}</td>
-            </tr>
-            <tr>
-                <th>Activo</th>
-                <td>{{ producto.activo ? 'Si' : 'No' }}</td>
-            </tr>
-        </tbody>
-    </table>
+
+         <table class="table style-two">
+            <tbody>
+                {# <tr>
+                    <th>Id</th>
+                    <td>{{ producto.id }}</td>
+                </tr> #}
+                <tr>
+                    <th>Nombre</th>
+                    <td class="text-break">{{ producto.nombre }}</td>
+                </tr>
+                <tr>
+                    <th>Precio</th>
+                    <td>{{ producto.precio }}</td>
+                </tr>
+                <tr>
+                    <th>Descuento</th>
+                    <td>{{ producto.descuento }}</td>
+                </tr>
+                <tr>
+                    <th>Categoria</th>
+                    <td>{{producto.categoria }}</td>
+                </tr>
+                <tr>
+                    <th>Foto</th>
+                    <td>
+                    {% if producto.foto %}
+                    <img src="{{ asset(producto.foto.filePath) | imagine_filter('small') }}" alt="MDN"  />
+                    {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <th>Activo</th>
+                    <td>{{ producto.activo ? 'Si' : 'No' }}</td>
+                </tr>
+            </tbody>
+        </table>
+
 
     <a class="btn btn-secondary mt-4" href="{{ path('app_producto_index') }}">back to list</a>
 

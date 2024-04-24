@@ -4,8 +4,59 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "843bcd856784e9ac84d93dde5274f855",
+    "content-hash": "a603319267a590b6bd123264fe6f8c62",
     "packages": [
+        {
+            "name": "carloschininin/attach-file-bundle",
+            "version": "0.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/carloschininin/attach-file-bundle.git",
+                "reference": "2213e37261f23a200d5b037832d5237f1f554fc6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/carloschininin/attach-file-bundle/zipball/2213e37261f23a200d5b037832d5237f1f554fc6",
+                "reference": "2213e37261f23a200d5b037832d5237f1f554fc6",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "^3.3|^4.0",
+                "doctrine/doctrine-bundle": "^2.6",
+                "doctrine/orm": "^2.11|^3.0",
+                "php": "^8.1",
+                "symfony/cache": "^6.0|^7.0",
+                "symfony/http-foundation": "^6.0|^7.0",
+                "symfony/http-kernel": "^6.0|^7.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.35"
+            },
+            "suggest": {
+                "ext-gd": "PHP GD image library",
+                "imagine/imagine": "Image library",
+                "symfony/form": "Symfony forms component"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "CarlosChininin\\AttachFile\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Carlos Chininin",
+                    "email": "carloschininin@gmail.com"
+                }
+            ],
+            "description": "Upload files",
+            "support": {
+                "issues": "https://github.com/carloschininin/attach-file-bundle/issues",
+                "source": "https://github.com/carloschininin/attach-file-bundle/tree/0.1.1"
+            },
+            "time": "2024-04-22T05:35:23+00:00"
+        },
         {
             "name": "doctrine/cache",
             "version": "2.2.0",
@@ -7593,5 +7644,5 @@
         "ext-zip": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }

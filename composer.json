@@ -10,6 +10,7 @@
         "ext-iconv": "*",
         "ext-mbstring": "*",
         "ext-zip": "*",
+        "carloschininin/attach-file-bundle": "^0.1.1",
         "doctrine/dbal": "^4.0",
         "doctrine/doctrine-bundle": "^2.12",
         "doctrine/doctrine-migrations-bundle": "^3.3",

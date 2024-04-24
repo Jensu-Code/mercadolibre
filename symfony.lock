@@ -1,4 +1,7 @@
 {
+    "carloschininin/attach-file-bundle": {
+        "version": "0.1.1"
+    },
     "doctrine/doctrine-bundle": {
         "version": "2.12",
         "recipe": {

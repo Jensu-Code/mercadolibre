@@ -67,16 +67,25 @@
                                 <img src="{{ asset('build/images/icons/sidebar-icon1.svg') }}" alt="" class="icon">
                                 <img src="{{ asset('build/images/icons/sidebar-icon-active1.svg') }}" alt="" class="icon icon-active">
                             </span>
-                            <span class="text">Dashboard</span>
+                            <span class="text">Escritorio</span>
                         </a>
                     </li>
                     <li class="sidebar-list__item">
-                        <a href="#" class="sidebar-list__link">
+                        <a href="{{path('app_producto_index')}}" class="sidebar-list__link">
                             <span class="sidebar-list__icon">
                                 <img src="{{ asset('build/images/icons/sidebar-icon2.svg') }}" alt="" class="icon">
                                 <img src="{{ asset('build/images/icons/sidebar-icon-active2.svg') }}" alt="" class="icon icon-active">
                             </span>
-                            <span class="text">Profile</span>
+                            <span class="text">Producto</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-list__item">
+                        <a href="{{path('app_producto_categoria_index')}}" class="sidebar-list__link">
+                            <span class="sidebar-list__icon">
+                                <img src="{{ asset('build/images/icons/sidebar-icon2.svg') }}" alt="" class="icon">
+                                <img src="{{ asset('build/images/icons/sidebar-icon-active2.svg') }}" alt="" class="icon icon-active">
+                            </span>
+                            <span class="text">Categoria</span>
                         </a>
                     </li>
                     <li class="sidebar-list__item">
@@ -85,7 +94,7 @@
                                 <img src="{{ asset('build/images/icons/sidebar-icon13.svg') }}" alt="" class="icon">
                                 <img src="{{ asset('build/images/icons/sidebar-icon-active13.svg') }}" alt="" class="icon icon-active">
                             </span>
-                            <span class="text">Logout</span>
+                            <span class="text">Carrar sesion</span>
                         </a>
                     </li>
                 </ul>
