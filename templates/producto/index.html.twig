@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% import 'theme/action.html.twig' as action %}
 {% block title %}Producto index{% endblock %}
 
 {% block body %}
@@ -31,8 +31,8 @@
                 <td>{{ producto.descuento }}</td>
                 <td>{{ producto.activo ? 'Si' : 'No' }}</td>
                 <td>
-                    <a class="btn btn-info btn-sm" href="{{ path('app_producto_show', {'id': producto.id}) }}">show</a>
-                    <a class="btn btn-primary btn-sm" href="{{ path('app_producto_edit', {'id': producto.id}) }}">edit</a>
+                   {{action.btn_show(path('app_producto_show', {'id': producto.id}))}}
+                   {{action.btn_edit(path('app_producto_edit', {'id': producto.id}))}}
                 </td>
             </tr>
         {% else %}
@@ -43,5 +43,5 @@
         </tbody>
     </table>
 
-    <a class="btn btn-success mt-4" href="{{ path('app_producto_new') }}">Create new</a>
+    {{action.btn_create( path('app_producto_new'))}}
 {% endblock %}

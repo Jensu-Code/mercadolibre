@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New MedioDePago{% endblock %}
+
+{% block body %}
+    <h4>Create new Medio De Pago</h4>
+
+    {{ include('medio_de_pago/_form.html.twig') }}
+
+    <a class="btn btn-secondary mt-4" href="{{ path('app_medio_de_pago_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vendedor{% endblock %}
+
+{% block body %}
+    <h1>Vendedor</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ vendedor.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ vendedor.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Telefono</th>
+                <td>{{ vendedor.telefono }}</td>
+            </tr>
+            <tr>
+                <th>Direccion</th>
+                <td>{{ vendedor.direccion }}</td>
+            </tr>
+            <tr>
+                <th>Ruc</th>
+                <td>{{ vendedor.Ruc }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_vendedor_index') }}">back to list</a>
+
+    <a href="{{ path('app_vendedor_edit', {'id': vendedor.id}) }}">edit</a>
+
+    {{ include('vendedor/_delete_form.html.twig') }}
+{% endblock %}

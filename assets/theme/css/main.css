@@ -1903,7 +1903,7 @@ button:focus {
 
 /* ================================= Accordion Css End =========================== */
 /* ================================= Button Css Start =========================== */
-.btn-check:checked + .btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check) + .btn:active {
+/* .btn-check:checked + .btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check) + .btn:active {
     color: none;
     background-color: none;
     border-color: none;
@@ -2173,7 +2173,7 @@ button:focus {
     background-color: hsl(var(--static-black)) !important;
     border-color: hsl(var(--static-black)) !important;
     color: hsl(var(--static-white)) !important;
-}
+} */
 
 /* ================================= Button Css End =========================== */
 /* ================================= Form Css Start =========================== */

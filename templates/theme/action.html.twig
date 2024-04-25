@@ -1,0 +1,14 @@
+{% macro btn_show(url)%}
+     <a class="btn btn-sm btn-icon btn-light" href="{{ url }}" alt="Mostrar">
+        <i class="fa fa-eye text-primary"></i>
+    </a>
+{% endmacro %}
+{% macro btn_edit(url)%}
+     <a class="btn btn-sm btn-icon btn-light" href="{{ url }}" alt="Editar">
+            <i class="fa fa-edit text-warning"></i>
+     </a>
+{% endmacro %}
+
+{% macro btn_create(url)%}
+    <a class="btn btn-success mt-4" href="{{url  }}">Create new</a>
+{% endmacro %}
