@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
-
+{% import 'theme/action.html.twig' as action %}
 {% block title %}Vendedor index{% endblock %}
 
 {% block body %}
     <h1>Vendedor index</h1>
 
-    <table class="table">
+    <table class="table style-two">
         <thead>
             <tr>
-                <th>Id</th>
+                {# <th>Id</th> #}
                 <th>Nombre</th>
                 <th>Telefono</th>
                 <th>Direccion</th>
@@ -19,14 +19,14 @@
         <tbody>
         {% for vendedor in vendedors %}
             <tr>
-                <td>{{ vendedor.id }}</td>
+                {# <td>{{ vendedor.id }}</td> #}
                 <td>{{ vendedor.nombre }}</td>
                 <td>{{ vendedor.telefono }}</td>
                 <td>{{ vendedor.direccion }}</td>
                 <td>{{ vendedor.Ruc }}</td>
                 <td>
-                    <a href="{{ path('app_vendedor_show', {'id': vendedor.id}) }}">show</a>
-                    <a href="{{ path('app_vendedor_edit', {'id': vendedor.id}) }}">edit</a>
+                    {{action.btn_show(path('app_vendedor_show', {'id': vendedor.id}))}}
+                    {{action.btn_edit(path('app_vendedor_edit', {'id': vendedor.id}))}}
                 </td>
             </tr>
         {% else %}
@@ -37,5 +37,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_vendedor_new') }}">Create new</a>
+    {{action.btn_create(path('app_vendedor_new') )}}
 {% endblock %}

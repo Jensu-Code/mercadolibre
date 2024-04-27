@@ -20,3 +20,9 @@ liip_imagine:
                 interlace: #Establecer carga progresiva en la imagen
                     mode: line
                 background: { color: '#00FFFF' }
+        producto_nuevo:
+            jpeg_quality: 85
+            png_compression_level: 9
+            filters:
+                thumbnail: { size: [ 290, 160 ], mode: inset }
+                background: { color: '#FFFFFF' }

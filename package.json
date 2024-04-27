@@ -2,6 +2,7 @@
   "devDependencies": {
     "@babel/core": "^7.17.0",
     "@babel/preset-env": "^7.16.0",
+    "@ckeditor/ckeditor5-build-classic": "^41.3.1",
     "@fortawesome/fontawesome-free": "^5.15.0",
     "@symfony/webpack-encore": "^4.6.1",
     "apexcharts": "3.46",

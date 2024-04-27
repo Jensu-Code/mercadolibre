@@ -33,6 +33,10 @@ class Vendedor
     #[ORM\Column(length: 11, nullable: true)]
     private ?string $Ruc = null;
 
+    public function __toString()
+    {
+        return $this->nombre;
+    }
     public function getId(): ?int
     {
         return $this->id;

@@ -11,6 +11,7 @@ namespace App\Form;
 
 use App\Entity\Producto;
 use App\Entity\ProductoCategoria;
+use App\Entity\Vendedor;
 use CarlosChininin\AttachFile\Form\AttachFileType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -23,11 +24,17 @@ class ProductoType extends AbstractType
     {
         $builder
             ->add('nombre')
+            // ->add('created_att')
             ->add('precio')
             ->add('descuento')
             ->add('categoria', EntityType::class, [
                 'class' => ProductoCategoria::class,
-'choice_label' => 'nombre',
+                'choice_label' => 'nombre',
+            ])
+            ->add('vendedor', EntityType::class, [
+                'class' => Vendedor::class,
+                'choice_label' => 'nombre',
+                'required' => true,
             ])
             ->add('foto',AttachFileType::class,[
                 'required' => false

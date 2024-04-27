@@ -31,6 +31,65 @@ class ProductoRepository extends ServiceEntityRepository
     //    /**
     //     * @return Producto[] Returns an array of Producto objects
     //     */
+    public function getAllProductos(?int $filterByCategoria=null): array
+    {
+        $queryBuider= $this->createQueryBuilder('producto')
+            ->select('producto', 'categoria', 'vendedor', 'foto')
+            ->join('producto.categoria', 'categoria')
+            ->join('producto.vendedor', 'vendedor')
+            ->leftJoin('producto.foto', 'foto')
+            ->where('producto.activo = true')
+            ->orderBy('producto.created_att', 'DESC')
+            ->getQuery()
+            ->getResult();
+
+            if($filterByCategoria!==null){
+                $dataCategoria=[];
+                foreach ($queryBuider as $producto){
+                     if(!isset($dataCategoria[$producto->getCategoria()->getId()])){
+                        $dataCategoria[$producto->getCategoria()->getId()]=[];
+                     }
+                     $datacategoria[$producto->getCategoria()->getId()][]=$producto;
+                }  
+                return $datacategoria;  
+            }
+            return $queryBuider;
+    }
+    public function getProductosForPage(?int $pagina = null): array
+    {
+        $pagina = $pagina ?? 1;
+        $total =  8;
+        $offset = ($pagina - 1) * $total;
+    
+        return $this->createQueryBuilder('producto')
+            ->select('producto', 'categoria', 'vendedor', 'foto')
+            ->join('producto.categoria', 'categoria')
+            ->join('producto.vendedor', 'vendedor')
+            ->leftJoin('producto.foto', 'foto')
+            ->where('producto.activo = true')
+            ->orderBy('producto.created_att', 'DESC')
+            ->setFirstResult($offset)
+            ->setMaxResults($total)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function getProductosByCategory($category){
+
+        return $this->createQueryBuilder('producto')
+        ->select('producto', 'categoria', 'vendedor', 'foto')
+        ->join('producto.categoria', 'categoria')
+        ->join('producto.vendedor', 'vendedor')
+        ->leftJoin('producto.foto', 'foto')
+        ->where('producto.activo = true')
+        ->andWhere('categoria.nombre = :category')
+        ->setParameter('category', $category)
+        ->orderBy('producto.created_att', 'DESC')
+        ->setMaxResults(8)
+        ->getQuery()
+        ->getResult();
+    }
+    
     //    public function findByExampleField($value): array
     //    {
     //        return $this->createQueryBuilder('p')

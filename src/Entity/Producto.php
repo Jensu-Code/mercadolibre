@@ -40,6 +40,15 @@ class Producto
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?AttachFile $foto = null;
+
+    #[ORM\ManyToOne]
+    private ?Vendedor $vendedor = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $created_att = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $updated_att = null;
     
     public function __toString()
     {
@@ -120,5 +129,46 @@ class Producto
         $this->foto = $foto;
 
         return $this;
+    }
+
+    public function getVendedor(): ?Vendedor
+    {
+        return $this->vendedor;
+    }
+
+    public function setVendedor(?Vendedor $vendedor): static
+    {
+        $this->vendedor = $vendedor;
+
+        return $this;
+    }
+
+    public function getCreatedAtt(): ?\DateTimeInterface
+    {
+        return $this->created_att;
+    }
+
+    public function setCreatedAtt(?\DateTimeInterface $created_att): static
+    {
+        $this->created_att = $created_att;
+
+        return $this;
+    }
+
+    public function getUpdatedAtt(): ?\DateTimeInterface
+    {
+        return $this->updated_att;
+    }
+
+    public function setUpdatedAtt(?\DateTimeInterface $updated_att): static
+    {
+        $this->updated_att = $updated_att;
+
+        return $this;
+    }
+
+    public function getPrecioDescuento():float{
+        $resultado = (1-$this->descuento/100)*$this->precio;
+        return round($resultado,2);
     }
 }

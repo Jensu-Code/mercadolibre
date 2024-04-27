@@ -3,14 +3,18 @@
 {% block title %}Producto index{% endblock %}
 
 {% block body %}
-    <h1>Producto index</h1>
+    <h4>Producto index</h4>
 
-    <table class="table style-two">
+  
+       <table class="table style-two">
         <thead>
             <tr>
                 {# <th>Id</th> #}
+                <th>Fecha</th>
+                <th>Hora</th>
                 <th>Foto</th>
                 <th>Nombre</th>
+                <th>Vendedor</th>
                 <th>Precio</th>
                 <th>Descuento</th>
                 <th>Activo</th>
@@ -21,12 +25,15 @@
         {% for producto in productos %}
             <tr>
                 {# <td>{{ producto.id }}</td> #}
+                <td>{{producto.CreatedAtt | date('d-m-y')}}</td>
+                <td>{{producto.CreatedAtt  | date('h:i:s a')}}</td>
                 <td>
                     {% if producto.foto %}
                         <img src="{{asset(producto.foto.filePath) | imagine_filter('mini')  }}" alt="Foto"/>
                     {% endif %}
                 </td>
                 <td>{{ producto.nombre }}</td>
+                <td>{{ producto.vendedor }}</td>
                 <td>{{ producto.precio }}</td>
                 <td>{{ producto.descuento }}</td>
                 <td>{{ producto.activo ? 'Si' : 'No' }}</td>
@@ -42,6 +49,7 @@
         {% endfor %}
         </tbody>
     </table>
+  
 
     {{action.btn_create( path('app_producto_new'))}}
 {% endblock %}
