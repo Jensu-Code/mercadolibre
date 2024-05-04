@@ -49,6 +49,9 @@ class Producto
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $updated_att = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $descripcion = null;
     
     public function __toString()
     {
@@ -170,5 +173,17 @@ class Producto
     public function getPrecioDescuento():float{
         $resultado = (1-$this->descuento/100)*$this->precio;
         return round($resultado,2);
+    }
+
+    public function getDescripcion(): ?string
+    {
+        return $this->descripcion;
+    }
+
+    public function setDescripcion(?string $descripcion): static
+    {
+        $this->descripcion = $descripcion;
+
+        return $this;
     }
 }

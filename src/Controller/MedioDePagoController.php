@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route('/medio-pago')]
+#[Route('home/medio-pago')]
 class MedioDePagoController extends AbstractController
 {
     #[Route('/', name: 'app_medio_de_pago_index', methods: ['GET'])]

@@ -24,5 +24,11 @@ liip_imagine:
             jpeg_quality: 85
             png_compression_level: 9
             filters:
-                thumbnail: { size: [ 290, 160 ], mode: inset }
+                thumbnail: { size: [ 290, 160 ], mode: outbound }
                 background: { color: '#FFFFFF' }
+        producto_detalle:
+            jpeg_quality: 90
+            png_compression_level: 10
+            filters:
+                thumbnail: { size: [ 840, 540 ], mode: inset }
+                background: { color: '#FFFFFF' }        

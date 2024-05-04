@@ -19,15 +19,16 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class HomeController extends AbstractController
 {
-    #[Route('/', name: 'app_home')]
-    public function index(ProductoRepository $productoRepository,ProductoCategoriaRepository $categoria): Response
+    #[Route('/{pagina}?', name: 'app_home')]
+    public function index(ProductoRepository $productoRepository,ProductoCategoriaRepository $categoria,$pagina=1): Response
     {
          $categorias = $categoria->findAll();
          $productos = $productoRepository->getAllProductos();
         return $this->render('home/home.html.twig',[
             'productos' => $productos,
             'categorias'=> $categorias,
-            'dataCategorias'=>$productoRepository->getAllProductos(1)
+            'dataCategorias'=>$productoRepository->getAllProductos(1),
+            'productosByPagina'=>$productoRepository->getProductosForPage((int)$pagina)
         ]
         );
     }

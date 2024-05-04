@@ -11,3 +11,12 @@
 
     {{ include('producto/_delete_form.html.twig') }}
 {% endblock %}
+{% block javascripts %}
+    <script type="module">
+        ClassicEditor
+            .create( document.querySelector( '#producto_descripcion' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+{% endblock %}

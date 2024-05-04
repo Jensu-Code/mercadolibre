@@ -39,6 +39,7 @@ class ProductoType extends AbstractType
             ->add('foto',AttachFileType::class,[
                 'required' => false
             ])
+            ->add('descripcion')
             ->add('activo')
         ;
     }

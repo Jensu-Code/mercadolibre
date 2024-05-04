@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route('/producto')]
+#[Route('home/producto')]
 class ProductoController extends AbstractController
 {
     #[Route('/', name: 'app_producto_index', methods: ['GET'])]
