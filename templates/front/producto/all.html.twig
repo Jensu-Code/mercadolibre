@@ -1,0 +1,336 @@
+{% extends 'front.html.twig' %}
+{% import 'theme/pagination.html.twig' as pagination %}
+
+{% block title %}Productos
+{% endblock %}
+
+{% block body %}
+	<!-- ======================== All Product Section Start ====================== -->
+	<section class="all-product py-4">
+		<div class="container container-two">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="filter-tab gap-3 flx-between">
+						<button type="button" class="filter-tab__button btn btn-secondary pill d-flex align-items-center">
+							<span class="icon icon-left"><img src="{{ asset('build/images/icons/filter.svg') }}" alt=""></span>
+							<span class="font-18 fw-500">
+								Filtros</span>
+						</button>
+
+						<div class="list-grid d-flex align-items-center gap-2">
+							<button class="list-grid__button list-button d-sm-flex d-none text-body">
+								<i class="las la-list"></i>
+							</button>
+							<button class="list-grid__button grid-button d-sm-flex d-none active text-body">
+								<i class="las la-border-all"></i>
+							</button>
+							<button class="list-grid__button sidebar-btn text-body d-lg-none d-flex">
+								<i class="las la-bars"></i>
+							</button>
+						</div>
+					</div>
+					<form action="#" class="filter-form pb-4 ">
+						<div class="row gy-3">
+							<div class="col-sm-4 col-xs-6">
+								<div class="flx-between gap-1">
+									<label for="producto" class="form-label font-16">Producto</label>
+									<button type="reset" class="text-body font-14">Clear</button>
+								</div>
+								<div class="position-relative">
+									<input type="text" class="common-input border-gray-five common-input--withLeftIcon" id="producto" placeholder="Search By Product..." value="{{ app.request.query.get('buscar')}}">
+									<span class="input-icon input-icon--left"><img src="{{ asset('build/images/icons/search-two.svg')}}" alt=""></span>
+								</div>
+							</div>
+							<div class="col-sm-4 col-xs-6">
+								<div class="flx-between gap-1">
+									<label for="Price" class="form-label font-16">Price</label>
+									<button type="reset" class="text-body font-14">Clear</button>
+								</div>
+								<div class="position-relative">
+									<input type="text" class="common-input border-gray-five" id="Price" placeholder="$7 - $29">
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="flx-between gap-1">
+									<label for="time" class="form-label font-16">Time Frame</label>
+									<button type="reset" class="text-body font-14">Clear</button>
+								</div>
+								<div class="position-relative select-has-icon">
+									<select id="time" class="common-input border-gray-five">
+										<option value="1">Now</option>
+										<option value="2">Yesterday</option>
+										<option value="2">1 Month Ago</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div
+					class="col-xl-3 col-lg-4">
+					<!-- ===================== Filter Sidebar Start ============================= -->
+					<div class="filter-sidebar">
+						<button type="button" class="filter-sidebar__close p-2 position-absolute end-0 top-0 z-index-1 text-body hover-text-main font-20 d-lg-none d-block">
+							<i class="las la-times"></i>
+						</button>
+						<div class="filter-sidebar__item">
+							<button type="button" class="filter-sidebar__button font-16 text-capitalize fw-500">Categoria</button>
+							<div class="filter-sidebar__content">
+								<ul class="filter-sidebar-list">
+									<li class="filter-sidebar-list__item">
+										<a href="{{path('front_producto_all')}}" class="filter-sidebar-list__text">
+											Total de productos
+											<span class="qty" id="total">0.0</span>
+										</a>
+									</li>
+									
+									{% for categoria in categoriasData %}
+										<li class="filter-sidebar-list__item">
+											<a href="{{path('front_producto_all',{categoriaId:categoria.categoriaId})}}" class="filter-sidebar-list__text">
+												{{ categoria.nombre }}
+												<span class="qty">{{ categoria.total }}</span>
+											</a>
+										</li>
+									{% endfor %}
+								</ul>
+							</div>
+						</div>
+						<div class="filter-sidebar__item">
+							<button type="button" class="filter-sidebar__button font-16 text-capitalize fw-500">Rating</button>
+							<div class="filter-sidebar__content">
+								<ul class="filter-sidebar-list">
+									<li class="filter-sidebar-list__item">
+										<div class="filter-sidebar-list__text">
+											<div class="common-check common-radio">
+												<input class="form-check-input" type="radio" name="radio" id="veiwAll">
+												<label class="form-check-label" for="veiwAll">
+													View All</label>
+											</div>
+											<span class="qty">(1859)</span>
+										</div>
+									</li>
+									<li class="filter-sidebar-list__item">
+										<div class="filter-sidebar-list__text">
+											<div class="common-check common-radio">
+												<input class="form-check-input" type="radio" name="radio" id="oneStar">
+												<label class="form-check-label" for="oneStar">
+													1 Star and above</label>
+											</div>
+											<span class="qty">(785)</span>
+										</div>
+									</li>
+									<li class="filter-sidebar-list__item">
+										<div class="filter-sidebar-list__text">
+											<div class="common-check common-radio">
+												<input class="form-check-input" type="radio" name="radio" id="twoStar">
+												<label class="form-check-label" for="twoStar">
+													2 Star and above</label>
+											</div>
+											<span class="qty">(1250)</span>
+										</div>
+									</li>
+									<li class="filter-sidebar-list__item">
+										<div class="filter-sidebar-list__text">
+											<div class="common-check common-radio">
+												<input class="form-check-input" type="radio" name="radio" id="threeStar">
+												<label class="form-check-label" for="threeStar">
+													3 Star and above</label>
+											</div>
+											<span class="qty">(7580)</span>
+										</div>
+									</li>
+									<li class="filter-sidebar-list__item">
+										<div class="filter-sidebar-list__text">
+											<div class="common-check common-radio">
+												<input class="form-check-input" type="radio" name="radio" id="fourStar">
+												<label class="form-check-label" for="fourStar">
+													4 Star and above</label>
+											</div>
+											<span class="qty">(1450)</span>
+										</div>
+									</li>
+									<li class="filter-sidebar-list__item">
+										<div class="filter-sidebar-list__text">
+											<div class="common-check common-radio">
+												<input class="form-check-input" type="radio" name="radio" id="fiveStar">
+												<label class="form-check-label" for="fiveStar">
+													5 Star Rating</label>
+											</div>
+											<span class="qty">(2530)</span>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="filter-sidebar__item">
+							<button type="button" class="filter-sidebar__button font-16 text-capitalize fw-500">Date Updated</button>
+							<div class="filter-sidebar__content">
+								<ul class="filter-sidebar-list">
+									<li class="filter-sidebar-list__item">
+										<div class="filter-sidebar-list__text">
+											<div class="common-check common-radio">
+												<input class="form-check-input" type="radio" name="radio" id="anyDate">
+												<label class="form-check-label" for="anyDate">
+													Any Date</label>
+											</div>
+											<span class="qty">
+												5,203</span>
+										</div>
+									</li>
+									<li class="filter-sidebar-list__item">
+										<div class="filter-sidebar-list__text">
+											<div class="common-check common-radio">
+												<input class="form-check-input" type="radio" name="radio" id="lastYear">
+												<label class="form-check-label" for="lastYear">
+													In the last year</label>
+											</div>
+											<span class="qty">1,258</span>
+										</div>
+									</li>
+									<li class="filter-sidebar-list__item">
+										<div class="filter-sidebar-list__text">
+											<div class="common-check common-radio">
+												<input class="form-check-input" type="radio" name="radio" id="lastMonth">
+												<label class="form-check-label" for="lastMonth">
+													In the last month</label>
+											</div>
+											<span class="qty">2450</span>
+										</div>
+									</li>
+									<li class="filter-sidebar-list__item">
+										<div class="filter-sidebar-list__text">
+											<div class="common-check common-radio">
+												<input class="form-check-input" type="radio" name="radio" id="LastWeek">
+												<label class="form-check-label" for="LastWeek">
+													In the last week</label>
+											</div>
+											<span class="qty">325</span>
+										</div>
+									</li>
+									<li class="filter-sidebar-list__item">
+										<div class="filter-sidebar-list__text">
+											<div class="common-check common-radio">
+												<input class="form-check-input" type="radio" name="radio" id="lastDay">
+												<label class="form-check-label" for="lastDay">
+													In the last day</label>
+											</div>
+											<span class="qty">745</span>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- ===================== Filter Sidebar End ============================= -->
+				</div>
+				<div class="col-xl-9 col-lg-8">
+					<div class="row gy-4 list-grid-wrapper">
+						{% for producto in paginator.results %}
+							<div class="col-xl-4 col-sm-6">
+								<div class="product-card section-bg">
+									<div class="product-card__thumb d-flex">
+										<a href="{{ path('front_producto_detalle', {id: producto.id}) }}" class="link w-100">
+											<img src="{{ asset(producto.foto.filePath) | imagine_filter('producto_nuevo') }}" alt="" class="cover-img">
+										</a>
+										<button type="button" class="product-card__wishlist">
+											<i class="fas fa-heart"></i>
+										</button>
+									</div>
+									<div class="product-card__content">
+										<h6 class="product-card__title">
+											<a href="{{ path('front_producto_detalle', {id: producto.id}) }}" class="link">{{ producto.nombre }}</a>
+										</h6>
+										<div class="product-card__info flx-between gap-2">
+											<span class="product-card__author">
+												by
+												<a href="#" class="link hover-text-decoration-underline">
+													{{ producto.categoria }}</a>
+		
+											</span>
+											<div class="flx-align gap-2">
+												<h6 class="product-card__price mb-0">{{ producto.precioDescuento }}</h6>
+												<span class="product-card__prevPrice text-decoration-line-through">{{ producto.precio }}</span>
+											</div>
+										</div>
+										<div class="product-card__bottom flx-between gap-2">
+											<div>
+												<span class="product-card__sales font-14 mb-2">1200 Sales</span>
+												<div class="d-flex align-items-center gap-1">
+													<ul class="star-rating">
+														<li class="star-rating__item font-11">
+															<i class="fas fa-star"></i>
+														</li>
+														<li class="star-rating__item font-11">
+															<i class="fas fa-star"></i>
+														</li>
+														<li class="star-rating__item font-11">
+															<i class="fas fa-star"></i>
+														</li>
+														<li class="star-rating__item font-11">
+															<i class="fas fa-star"></i>
+														</li>
+														<li class="star-rating__item font-11">
+															<i class="fas fa-star"></i>
+														</li>
+													</ul>
+													<span class="star-rating__text text-heading fw-500 font-14">
+														(16)</span>
+												</div>
+											</div>
+											<a href="#" class="btn btn-outline-light btn-sm pill">Live Demo</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+					<!-- Pagination Start -->
+					{{ pagination.show2(paginator, 'front_producto_all') }}
+					<!-- Pagination End -->
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- ======================== All Product Section End ====================== -->
+{% endblock %}
+
+{% block javascripts %}
+   
+   <script type="module">
+       {# fetch('{{ path('from_total_products') }}',{
+		method: 'POST',
+	   })
+	   .then(response=>response.json())
+	   .then(data=>console.log(data)); #}
+     
+	   document.addEventListener('DOMContentLoaded',async()=>{
+		     const total = document.querySelector('#total');
+			 const searchProduct = document.querySelector('#producto');
+		     const response = await fetch('{{path('from_total_products')}}',
+			                        {
+										method: 'POST',
+									});
+			 const data = await response.json();
+			 total.textContent = data;
+
+             // codigo para buscar un producto
+			 let urlBase = '{{ path('front_producto_all')}}'
+			 searchProduct.addEventListener('input',async(e)=>{
+				 const url = new URL(urlBase, window.location.origin);
+                 const params = new URLSearchParams(url.search);
+
+				if (params.has('categoriaId') && params.get('categoriaId')==!'') {
+					params.set('categoriaId', categoriaId);
+				}
+    			params.set('buscar', e.target.value);
+    			params.set('page', 1);
+
+    			url.search = params.toString();
+    			window.location.href = url.toString();
+
+              
+			 });
+	   });
+
+   </script>
+{% endblock %}

@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route('home/vendedor')]
+#[Route('admin/vendedor')]
 class VendedorController extends AbstractController
 {
     #[Route('/', name: 'app_vendedor_index', methods: ['GET'])]

@@ -18,15 +18,19 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\Requirement\Requirement;
 
-#[Route('home/producto')]
+#[Route('admin/producto')]
 class ProductoController extends AbstractController
-{
-    #[Route('/', name: 'app_producto_index', methods: ['GET'])]
-    public function index(ProductoRepository $productoRepository): Response
+{    
+    private const PAGE_SIZE = 5;
+    #[Route('/', name: 'app_producto_index', defaults: ['page' => '1', '_format' => 'html'], methods: ['GET'])]
+    #[Route('/page/{page}', name: 'app_producto_index_paginated', requirements: ['page' => Requirement::POSITIVE_INT], methods: ['GET'])]
+    public function index(int $page,ProductoRepository $productoRepository): Response
     {
+        $paginator = $productoRepository->findLatest($page,self::PAGE_SIZE);
         return $this->render('producto/index.html.twig', [
-            'productos' => $productoRepository->findAll(),
+            'paginator' => $paginator,
         ]);
     }
 

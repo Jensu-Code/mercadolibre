@@ -1,0 +1,87 @@
+{% macro show(paginator, route) %}
+    {% if paginator.hasToPaginate %}
+        <div class="navigation text-center mt-4">
+            <ul class="pagination">
+                {% if paginator.hasPreviousPage %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ path(route, {page: paginator.previousPage}) }}" rel="previous">
+                            <i class="fa fw fa-long-arrow-left"></i> Anterior
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">Anterior</span>
+                    </li>
+                {% endif %}
+
+                {% for i in 1..paginator.lastPage %}
+                    {% if i == paginator.currentPage %}
+                        <li class="page-item active">
+                            <span class="page-link">{{ i }} <span class="sr-only">Actual</span></span>
+                        </li>
+                    {% else %}
+                        <li class="page-item"><a class="page-link" href="{{ path(route, {page: i}) }}">{{ i }}</a></li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if paginator.hasNextPage %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ path(route, {page: paginator.nextPage}) }}">
+                            <span>Siguiente <i class="fa fw fa-long-arrow-right"></i></span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">Siguiente <i class="fa fw fa-long-arrow-right"></i></span>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    {% endif %}
+{% endmacro %}
+
+{% macro show2(paginator, route) %}
+    {% if paginator.hasToPaginate %}
+        <nav aria-label="Page navigation example">
+            <ul class="pagination common-pagination">
+                {% if paginator.hasPreviousPage %}
+                    <li class="page-item">
+                        <a class="page-link flx-align gap-2 flex-nowrap" href="{{ path(route, {page: paginator.previousPage}) }}">
+                            <span class="icon line-height-1 font-20"><i class="las la-arrow-left"></i></span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link"><span class="icon line-height-1 font-20"><i class="las la-arrow-left"></i></span></span>
+                    </li>
+                {% endif %}
+
+                {% for i in 1..paginator.lastPage %}
+                    {% if i == paginator.currentPage %}
+                        <li class="page-item active">
+                            <span class="page-link">{{ i }} <span class="sr-only">Actual</span></span>
+                        </li>
+                    {% else %}
+                        <li class="page-item"><a class="page-link" href="{{ path(route, {page: i}) }}">{{ i }}</a></li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if paginator.hasNextPage %}
+                    <li class="page-item">
+                        <a class="page-link flx-align gap-2 flex-nowrap" href="{{ path(route, {page: paginator.nextPage}) }}">
+                            <span class="icon line-height-1 font-20"><i class="las la-arrow-right"></i></span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link"><span class="icon line-height-1 font-20"><i class="las la-arrow-right"></i></span></span>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    {% endif %}
+{% endmacro %}
+
+{% macro index(index, paginator) %}
+    {{ index + (paginator.currentPage - 1) * paginator.pageSize }}
+{% endmacro %}
